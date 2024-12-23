@@ -30,4 +30,14 @@ apt install ImageMagick
 https://formulae.brew.sh/formula/imagemagick
 
 
+## letsEncryptUpdate.sh
+
+let's encrypt の証明書のアップデート
+
+## showZombie.sh
+
+ゾンビタスク（らしきもの）を表示
+
+
+
 
