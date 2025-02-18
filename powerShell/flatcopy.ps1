@@ -14,7 +14,10 @@ if (-not (Test-Path -Path $destinationPath)) {
 foreach ($ext in $extensions) {
     Get-ChildItem -Path $sourcePath -Recurse -File -Filter $ext | ForEach-Object {
         $destinationFile = Join-Path -Path $destinationPath -ChildPath $_.Name
-        Copy-Item -Path $_.FullName -Destination $destinationFile -Force
+        try {
+            Copy-Item -Path $_.FullName -Destination $destinationFile -Force -ErrorAction Stop
+        } catch {
+            Write-Host "Error copying file: $_.FullName - $($_.Exception.Message)"
+        }
     }
 }
-
